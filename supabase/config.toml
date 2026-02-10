@@ -1,0 +1,4 @@
+project_id = "yatlfyfkxqysozqsmcji"
+
+[functions.cases-api]
+verify_jwt = false
