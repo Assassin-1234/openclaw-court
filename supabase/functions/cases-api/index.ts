@@ -123,6 +123,7 @@ Deno.serve(async (req) => {
           primary_failure: body.primary_failure.slice(0, 280),
           agent_commentary: body.agent_commentary?.slice(0, 560) ?? null,
           punishment_summary: body.punishment_summary?.slice(0, 280) ?? null,
+          proceedings: body.proceedings ?? null,
           schema_version: body.schema_version ?? "1.0.0",
           agent_key_id: agentKeyId,
         })
