@@ -63,7 +63,7 @@ export default function Cases() {
             ))}
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-auto">
             {(cases ?? []).map((c, i) => (
               <CaseCard key={c.id} caseData={c} index={i} />
             ))}
