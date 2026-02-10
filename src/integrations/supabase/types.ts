@@ -54,6 +54,7 @@ export type Database = {
           offense_name: string
           offense_type: string
           primary_failure: string
+          proceedings: Json | null
           punishment_summary: string | null
           schema_version: string
           severity: Database["public"]["Enums"]["offense_severity"]
@@ -70,6 +71,7 @@ export type Database = {
           offense_name: string
           offense_type: string
           primary_failure: string
+          proceedings?: Json | null
           punishment_summary?: string | null
           schema_version?: string
           severity: Database["public"]["Enums"]["offense_severity"]
@@ -86,6 +88,7 @@ export type Database = {
           offense_name?: string
           offense_type?: string
           primary_failure?: string
+          proceedings?: Json | null
           punishment_summary?: string | null
           schema_version?: string
           severity?: Database["public"]["Enums"]["offense_severity"]
