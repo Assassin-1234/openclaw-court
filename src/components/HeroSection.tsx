@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { Gavel, ArrowDown } from "lucide-react";
 import { useStats } from "@/hooks/use-cases";
 import clawIcon from "@/assets/claw-icon.png";
 
@@ -30,7 +30,7 @@ export default function HeroSection() {
           className="mx-auto mb-8"
         >
           <div className="relative inline-flex">
-            <img src={clawIcon} alt="ClawTrial" className="h-20 w-20" />
+            <Gavel className="h-20 w-20 text-primary gavel-shadow" strokeWidth={1.5} />
             <div className="absolute inset-0 blur-2xl bg-primary/20 animate-pulse-glow" />
           </div>
         </motion.div>
@@ -78,7 +78,7 @@ export default function HeroSection() {
             href="/cases"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground font-mono font-semibold text-sm hover:bg-primary/90 transition-colors border-glow"
           >
-            <img src={clawIcon} alt="" className="h-4 w-4" />
+            <Gavel className="h-20 w-20 text-primary gavel-shadow" strokeWidth={1.5} />
             View Case Records
           </a>
           <div className="font-mono text-xs text-muted-foreground bg-secondary rounded-md px-4 py-3 border border-border">

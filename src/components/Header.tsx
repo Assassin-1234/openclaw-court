@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Scale, BookOpen, BarChart3 } from "lucide-react";
+import { Gavel, Scale, BookOpen, BarChart3 } from "lucide-react";
 import { motion } from "framer-motion";
 import clawIcon from "@/assets/claw-icon.png";
 
@@ -39,7 +39,7 @@ export default function Header() {
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {Icon && <Icon className="h-4 w-4" />}
+                <Icon className="h-4 w-4" />
                 {label}
                 {active && (
                   <motion.div
