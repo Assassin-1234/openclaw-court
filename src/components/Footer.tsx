@@ -1,11 +1,11 @@
-import { Gavel } from "lucide-react";
+import clawIcon from "@/assets/claw-icon.png";
 
 export default function Footer() {
   return (
     <footer className="border-t border-border py-10">
       <div className="container flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <Gavel className="h-4 w-4 text-primary" />
+          <img src={clawIcon} alt="ClawTrial" className="h-4 w-4" />
           <span className="font-mono text-sm font-semibold">
             Claw<span className="text-primary">Trial</span>
           </span>

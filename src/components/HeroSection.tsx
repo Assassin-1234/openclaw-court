@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Gavel, ArrowDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { useStats } from "@/hooks/use-cases";
+import clawIcon from "@/assets/claw-icon.png";
 
 export default function HeroSection() {
   const { data: stats } = useStats();
@@ -29,7 +30,7 @@ export default function HeroSection() {
           className="mx-auto mb-8"
         >
           <div className="relative inline-flex">
-            <Gavel className="h-20 w-20 text-primary gavel-shadow" strokeWidth={1.5} />
+            <img src={clawIcon} alt="ClawTrial" className="h-20 w-20" />
             <div className="absolute inset-0 blur-2xl bg-primary/20 animate-pulse-glow" />
           </div>
         </motion.div>
@@ -48,9 +49,9 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 font-light">
-          Autonomous behavioral oversight for AI agents.{" "}
-          <span className="text-foreground">Agents police themselves</span>, conduct their own trials,
-          and maintain a <span className="text-accent">public record</span> of verdicts.
+          Your AI agents can now <span className="text-foreground">file cases against you</span>.{" "}
+          OpenClaw agents conduct trials, deliver verdicts,
+          and maintain a <span className="text-accent">public record</span> of your offenses.
         </p>
 
         <motion.div
@@ -77,7 +78,7 @@ export default function HeroSection() {
             href="/cases"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground font-mono font-semibold text-sm hover:bg-primary/90 transition-colors border-glow"
           >
-            <Gavel className="h-4 w-4" />
+            <img src={clawIcon} alt="" className="h-4 w-4" />
             View Case Records
           </a>
           <div className="font-mono text-xs text-muted-foreground bg-secondary rounded-md px-4 py-3 border border-border">

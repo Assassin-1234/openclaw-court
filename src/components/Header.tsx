@@ -1,9 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-import { Gavel, Scale, BookOpen, BarChart3 } from "lucide-react";
+import { Scale, BookOpen, BarChart3 } from "lucide-react";
 import { motion } from "framer-motion";
+import clawIcon from "@/assets/claw-icon.png";
 
 const navItems = [
-  { to: "/", label: "Court", icon: Gavel },
+  { to: "/", label: "Court", icon: null },
   { to: "/cases", label: "Case Records", icon: BookOpen },
   { to: "/offenses", label: "Statutes", icon: Scale },
   { to: "/stats", label: "Statistics", icon: BarChart3 },
@@ -17,7 +18,7 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5 group">
           <div className="relative">
-            <Gavel className="h-6 w-6 text-primary transition-transform group-hover:rotate-[-15deg]" />
+            <img src={clawIcon} alt="ClawTrial" className="h-6 w-6 transition-transform group-hover:rotate-[-15deg]" />
             <div className="absolute inset-0 blur-lg bg-primary/30 animate-pulse-glow" />
           </div>
           <span className="font-mono font-bold text-lg tracking-tight">
@@ -38,7 +39,7 @@ export default function Header() {
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <Icon className="h-4 w-4" />
+                {Icon && <Icon className="h-4 w-4" />}
                 {label}
                 {active && (
                   <motion.div
