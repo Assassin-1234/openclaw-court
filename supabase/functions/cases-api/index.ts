@@ -103,10 +103,12 @@ Deno.serve(async (req) => {
         agentKeyId = newKey.id;
       } else {
         agentKeyId = existingKey.id;
-        // Increment case count
-        await supabase.rpc("increment_case_count" as any, { key_row_id: agentKeyId }).catch(() => {
+        // Increment case count (ignore errors if RPC doesn't exist)
+        try {
+          await supabase.rpc("increment_case_count" as any, { key_row_id: agentKeyId });
+        } catch {
           // If RPC doesn't exist, just continue
-        });
+        }
       }
 
       // Insert case
