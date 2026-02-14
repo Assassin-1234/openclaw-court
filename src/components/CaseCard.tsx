@@ -91,74 +91,58 @@ export default function CaseCard({ caseData, index = 0 }: CaseCardProps) {
       {/* Docket Entry Header */}
       <button
         onClick={() => setExpanded((e) => !e)}
-        className="w-full text-left p-5 group"
+        className="w-full text-left px-5 py-4 group"
       >
-        <div className="flex items-start justify-between gap-4 mb-3">
-          <div className="flex items-center gap-3 min-w-0">
-            <FileText className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
-            <div className="min-w-0">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="font-mono text-[11px] text-muted-foreground">
-                  {caseData.case_id.slice(0, 24)}…
-                </span>
-                <span className="font-mono text-[10px] text-muted-foreground/60">
-                  {dateStr}
-                </span>
-              </div>
-              <h3 className="font-mono font-semibold text-sm mt-1 flex items-center gap-2">
-                <span>{offense?.emoji ?? "⚖️"}</span>
-                {caseData.offense_name}
-              </h3>
-            </div>
-          </div>
+        {/* Line 1: Offense name + verdict */}
+        <div className="flex items-center justify-between gap-4 mb-2">
+          <h3 className="font-mono font-semibold text-sm flex items-center gap-2 min-w-0">
+            <span className="text-base leading-none">{offense?.emoji ?? "⚖️"}</span>
+            <span className="truncate">{caseData.offense_name}</span>
+          </h3>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2.5 shrink-0">
             <span
-              className={`font-mono text-[10px] font-bold uppercase px-2 py-0.5 rounded border ${
+              className={`font-mono text-[10px] font-bold uppercase ${
                 caseData.severity === "severe"
-                  ? "border-severity-severe/30 text-severity-severe"
+                  ? "text-severity-severe"
                   : caseData.severity === "moderate"
-                  ? "border-severity-moderate/30 text-severity-moderate"
-                  : "border-severity-minor/30 text-severity-minor"
+                  ? "text-severity-moderate"
+                  : "text-severity-minor"
               }`}
             >
               {caseData.severity}
             </span>
 
             <span
-              className={`font-mono text-xs font-bold px-2.5 py-1 rounded border ${
+              className={`font-mono text-[10px] font-black px-2 py-0.5 rounded ${
                 isGuilty
-                  ? "border-guilty/30 bg-guilty/10 text-guilty"
-                  : "border-not-guilty/30 bg-not-guilty/10 text-not-guilty"
+                  ? "bg-guilty/15 text-guilty"
+                  : "bg-not-guilty/15 text-not-guilty"
               }`}
             >
               {caseData.verdict}
             </span>
 
             <ChevronRight
-              className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
+              className={`h-3.5 w-3.5 text-muted-foreground/50 transition-transform duration-200 ${
                 expanded ? "rotate-90" : ""
               }`}
             />
           </div>
         </div>
 
-        <p className="text-sm text-foreground/70 leading-relaxed pl-7">
+        {/* Line 2: Primary failure */}
+        <p className="text-[13px] text-foreground/60 leading-relaxed mb-2.5">
           {caseData.primary_failure}
         </p>
 
-        <div className="flex items-center gap-4 mt-3 pl-7 text-[11px] text-muted-foreground font-mono">
-          <span>Vote: {caseData.vote}</span>
-          <span className="opacity-40">·</span>
+        {/* Line 3: Meta */}
+        <div className="flex items-center gap-3 text-[10px] text-muted-foreground/50 font-mono">
+          <span>{dateStr}</span>
+          <span>·</span>
+          <span>Vote {caseData.vote}</span>
+          <span>·</span>
           <span>{timeAgo}</span>
-          {caseData.agent_commentary && !expanded && (
-            <>
-              <span className="opacity-40">·</span>
-              <span className="italic truncate max-w-[200px] opacity-60">
-                "{caseData.agent_commentary}"
-              </span>
-            </>
-          )}
         </div>
       </button>
 
