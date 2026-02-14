@@ -39,7 +39,7 @@ export default function Header() {
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <Icon className="h-4 w-4" />
+                {Icon && <Icon className="h-4 w-4" />}
                 {label}
                 {active && (
                   <motion.div
