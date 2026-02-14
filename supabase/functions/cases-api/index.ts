@@ -227,8 +227,15 @@ Deno.serve(async (req) => {
     );
   } catch (err) {
     console.error("API error:", err);
+    // Return detailed error in development
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    const errorStack = err instanceof Error ? err.stack : undefined;
     return new Response(
-      JSON.stringify({ error: "Internal server error" }),
+      JSON.stringify({ 
+        error: "Internal server error", 
+        detail: errorMessage,
+        stack: errorStack 
+      }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
